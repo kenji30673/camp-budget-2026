@@ -49,6 +49,48 @@
       display: flex; align-items: center; gap: 8px;
     }
 
+    /* ========== 施設リンクセクション ========== */
+    .facilities-section {
+      background: white; border-radius: 16px; padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 16px;
+      border: 2px dashed #4CAF50;
+    }
+
+    .facilities-title {
+      font-size: 1em; font-weight: bold; color: #2E7D32;
+      margin-bottom: 12px;
+    }
+
+    .facilities-hint {
+      font-size: 0.85em; color: #666; margin-bottom: 12px;
+    }
+
+    .facility-links {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 600px) {
+      .facility-links { grid-template-columns: 1fr; }
+    }
+
+    .facility-link {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 14px;
+      background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+      border: 2px solid #4CAF50; border-radius: 12px;
+      text-decoration: none; cursor: pointer;
+      transition: all 0.2s;
+      color: #2E7D32; font-weight: bold; font-size: 0.95em;
+    }
+
+    .facility-link:hover {
+      background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(76,175,80,0.3);
+    }
+
+    .facility-link-emoji { font-size: 1.8em; }
+
     /* ========== スケジュール ========== */
     .schedule-day {
       background: white; border-radius: 16px; padding: 18px;
@@ -209,6 +251,7 @@
     @media print {
       body { background: white; }
       .container { max-width: 100%; }
+      .facilities-section { display: none; }
     }
   </style>
 </head>
@@ -240,6 +283,34 @@
     <div class="info-row">
       <span class="info-label">🎯 テーマ</span>
       <span class="info-value">山・川でたくさん冒険するコース</span>
+    </div>
+  </div>
+
+  <!-- 施設情報リンク -->
+  <div class="section-title">🔗 各施設を詳しく知ろう</div>
+
+  <div class="facilities-section">
+    <div class="facilities-title">キャンプで行く場所の公式サイト</div>
+    <div class="facilities-hint">
+      👇 アイコンをタップすると公式サイトが開くよ
+    </div>
+    <div class="facility-links">
+      <a class="facility-link" href="https://www.osaki-turibori.com/info/info01.html" target="_blank" rel="noopener">
+        <span class="facility-link-emoji">🎣</span>
+        <span>大崎つりぼり</span>
+      </a>
+      <a class="facility-link" href="https://minakami-ariston.jp/" target="_blank" rel="noopener">
+        <span class="facility-link-emoji">🏕️</span>
+        <span>キャンプ場</span>
+      </a>
+      <a class="facility-link" href="https://suzumorinoyu.com/" target="_blank" rel="noopener">
+        <span class="facility-link-emoji">♨️</span>
+        <span>鈴森の湯</span>
+      </a>
+      <a class="facility-link" href="https://www.fw-jp.com/" target="_blank" rel="noopener">
+        <span class="facility-link-emoji">🚣</span>
+        <span>ラフティング</span>
+      </a>
     </div>
   </div>
 
