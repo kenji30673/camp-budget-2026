@@ -172,12 +172,6 @@
       font-size: 0.8em; color: #aaa;
     }
 
-    .checkbox {
-      width: 18px; height: 18px;
-      border: 2px solid #4CAF50; border-radius: 4px;
-      flex-shrink: 0; cursor: pointer;
-    }
-
     .checklist-item input[type="checkbox"] {
       width: 18px; height: 18px; cursor: pointer;
     }
@@ -211,17 +205,9 @@
       font-size: 1.8em; flex-shrink: 0;
     }
 
-    .fun-content {
-      flex: 1;
-    }
-
-    .fun-title {
-      font-weight: bold; color: #333; margin-bottom: 4px;
-    }
-
-    .fun-desc {
-      font-size: 0.88em; color: #666; line-height: 1.6;
-    }
+    .fun-content { flex: 1; }
+    .fun-title { font-weight: bold; color: #333; margin-bottom: 4px; }
+    .fun-desc { font-size: 0.88em; color: #666; line-height: 1.6; }
 
     /* ========== ルール＆マナー ========== */
     .rules-box {
@@ -236,13 +222,8 @@
     }
     .rule-item:last-child { border-bottom: none; }
 
-    .rule-icon {
-      font-size: 1.3em; flex-shrink: 0;
-    }
-
-    .rule-text {
-      color: #555; line-height: 1.6;
-    }
+    .rule-icon { font-size: 1.3em; flex-shrink: 0; }
+    .rule-text { color: #555; line-height: 1.6; }
 
     /* ========== フッター ========== */
     .footer {
@@ -326,22 +307,23 @@
   <div class="facilities-section">
     <div class="facilities-title">キャンプで行く場所の公式サイト</div>
     <div class="facilities-hint">
-      👇 アイコンをタップすると公式サイトが開くよ
+      👇 アイコンをタップすると公式サイトが開くよ<br>
+      <span style="font-size:0.8em; color:#999;">※スマホの戻るボタン【←】でこのページに戻ります</span>
     </div>
     <div class="facility-links">
-      <a class="facility-link" href="https://www.maebashi-cvb.com/spot/1110" target="_blank" rel="noopener">
+      <a class="facility-link" href="https://www.maebashi-cvb.com/spot/1110" rel="noopener">
         <span class="facility-link-emoji">🎣</span>
         <span>大崎つりぼり</span>
       </a>
-      <a class="facility-link" href="https://minakami-ariston.jp/" target="_blank" rel="noopener">
+      <a class="facility-link" href="https://minakami-ariston.jp/" rel="noopener">
         <span class="facility-link-emoji">🏕️</span>
         <span>キャンプ場</span>
       </a>
-      <a class="facility-link" href="https://suzumorinoyu.com/" target="_blank" rel="noopener">
+      <a class="facility-link" href="https://suzumorinoyu.com/" rel="noopener">
         <span class="facility-link-emoji">♨️</span>
         <span>鈴森の湯</span>
       </a>
-      <a class="facility-link" href="https://tour.kappa-club.com/happypack.html" target="_blank" rel="noopener">
+      <a class="facility-link" href="https://tour.kappa-club.com/happypack.html" rel="noopener">
         <span class="facility-link-emoji">🚣</span>
         <span>ラフティング</span>
       </a>
@@ -764,6 +746,15 @@
   </div>
 
 </div>
+
+<script>
+  // スマホの戻るボタンで戻ってきたときのイベント
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      console.log('ページに戻ってきました');
+    }
+  });
+</script>
 
 </body>
 </html>
