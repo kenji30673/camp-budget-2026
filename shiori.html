@@ -9,437 +9,477 @@
 
     body {
       font-family: 'Hiragino Kundo ProN', 'メイリオ', sans-serif;
-      background: white;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    @media print {
-      body { background: white; margin: 0; padding: 0; }
-      .no-print { display: none; }
-    }
-
-    /* ========== ページ設定 ========== */
-    .container {
-      max-width: 210mm;
-      height: 297mm;
-      margin: 0 auto;
-      padding: 12mm;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .page {
-      page-break-after: always;
+      background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      padding: 20px;
     }
+
+    .container { max-width: 900px; margin: 0 auto; }
 
     /* ========== ヘッダー ========== */
     .header {
-      text-align: center;
-      border-bottom: 3px solid #4CAF50;
-      padding-bottom: 8mm;
-      margin-bottom: 6mm;
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
+      border-radius: 20px; padding: 30px 24px; text-align: center;
+      margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-
     .header h1 {
-      font-size: 32px;
-      font-weight: bold;
-      color: #4CAF50;
-      margin: 0 0 4mm 0;
-      line-height: 1.2;
+      font-size: 1.8em; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 8px; line-height: 1.5;
     }
+    .header p { color: white; font-size: 0.95em; line-height: 1.6; opacity: 0.95; }
 
-    .header p {
-      font-size: 12px;
-      color: #666;
-      margin: 2mm 0 0 0;
+    /* ========== 基本情報カード ========== */
+    .info-card {
+      background: white; border-radius: 16px; padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;
     }
+    .info-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px dotted #eee; font-size: 0.95em;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { font-weight: bold; color: #333; }
+    .info-value { color: #666; font-size: 0.9em; }
 
     /* ========== セクションタイトル ========== */
     .section-title {
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background: #FF6B9D;
-      padding: 6mm 5mm;
-      margin: 5mm 0 4mm 0;
-      border-radius: 3px;
+      font-size: 1.2em; font-weight: bold; color: white;
+      background: linear-gradient(135deg, #FF6B9D, #FFB347);
+      padding: 12px 16px; border-radius: 10px; margin: 20px 0 14px;
+      display: flex; align-items: center; gap: 8px;
     }
-
-    /* ========== 情報カード ========== */
-    .info-card {
-      border: 1px solid #ddd;
-      padding: 6mm;
-      margin-bottom: 5mm;
-      border-radius: 3px;
-      background: #f9f9f9;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      padding: 3mm 0;
-      border-bottom: 1px dotted #ddd;
-    }
-
-    .info-row:last-child { border-bottom: none; }
-    .info-label { font-weight: bold; width: 40%; }
-    .info-value { width: 55%; text-align: right; }
 
     /* ========== スケジュール ========== */
     .schedule-day {
-      border: 1px solid #ddd;
-      padding: 5mm;
-      margin-bottom: 5mm;
-      border-radius: 3px;
-      page-break-inside: avoid;
+      background: white; border-radius: 16px; padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 16px;
+      border-top: 5px solid #4CAF50;
     }
+    .schedule-day.day2 { border-top-color: #2196F3; }
 
     .day-title {
-      font-size: 13px;
-      font-weight: bold;
-      color: #4CAF50;
-      margin-bottom: 3mm;
-      padding-bottom: 2mm;
-      border-bottom: 2px solid #4CAF50;
-    }
-
-    .schedule-day.day2 .day-title {
-      color: #2196F3;
-      border-bottom-color: #2196F3;
+      font-size: 1.05em; font-weight: bold; color: #333;
+      margin-bottom: 12px;
     }
 
     .schedule-item {
-      display: flex;
-      gap: 5mm;
-      padding: 3mm 0;
-      border-bottom: 1px dotted #eee;
-      font-size: 11px;
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 12px; padding: 10px 0; border-bottom: 1px dotted #eee;
+      align-items: start;
     }
-
     .schedule-item:last-child { border-bottom: none; }
 
     .schedule-time {
-      font-weight: bold;
-      color: #FF6B9D;
-      min-width: 18mm;
+      font-weight: bold; color: #FF6B9D; font-size: 0.95em;
     }
 
     .schedule-content {
-      flex: 1;
-      line-height: 1.3;
+      color: #555; line-height: 1.6; font-size: 0.92em;
     }
 
-    /* ========== チェックリスト ========== */
-    .checklist-day {
-      margin-bottom: 5mm;
-      page-break-inside: avoid;
-    }
-
-    .checklist-day-title {
-      font-size: 13px;
-      font-weight: bold;
-      color: white;
-      background: #4CAF50;
-      padding: 4mm 5mm;
-      margin-bottom: 4mm;
-      border-radius: 2px;
-    }
-
-    .checklist-day.day2 .checklist-day-title {
-      background: #2196F3;
-    }
-
-    .checklist-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4mm;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 4mm;
-      font-size: 11px;
-      padding: 3mm;
-      background: #f9f9f9;
-      border-radius: 2px;
-    }
-
-    .checklist-item input[type="checkbox"] {
-      width: 5mm;
-      height: 5mm;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
+    .schedule-emoji { font-size: 1.3em; }
 
     /* ========== 注意事項 ========== */
     .warning-box {
-      background: #FFF8E1;
-      border-left: 3mm solid #FF9800;
-      padding: 5mm;
-      margin-bottom: 5mm;
-      font-size: 11px;
-      page-break-inside: avoid;
+      background: linear-gradient(135deg, #FFEBEE, #FCE4EC);
+      border-left: 5px solid #E91E63; border-radius: 10px;
+      padding: 14px 16px; margin-bottom: 16px;
     }
-
     .warning-box .title {
-      font-weight: bold;
-      color: #E65100;
-      margin-bottom: 2mm;
-      font-size: 12px;
+      font-weight: bold; color: #C2185B; margin-bottom: 8px;
     }
-
     .warning-box .content {
-      color: #795548;
-      line-height: 1.5;
+      font-size: 0.9em; color: #880E4F; line-height: 1.7;
     }
 
-    /* ========== ルール ========== */
+    /* ========== チェックリスト ========== */
+    .checklist-section {
+      background: white; border-radius: 16px; padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 16px;
+    }
+
+    .checklist-day {
+      margin-bottom: 16px;
+    }
+
+    .checklist-day-title {
+      font-size: 0.95em; font-weight: bold; color: white;
+      background: #4CAF50; padding: 8px 12px; border-radius: 6px;
+      margin-bottom: 10px; display: inline-block;
+    }
+    .checklist-day.day2 .checklist-day-title { background: #2196F3; }
+
+    .checklist-items {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    @media (max-width: 600px) {
+      .checklist-items { grid-template-columns: 1fr; }
+    }
+
+    .checklist-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; background: #f9f9f9; border-radius: 8px;
+      font-size: 0.88em; color: #555;
+    }
+
+    .checkbox {
+      width: 18px; height: 18px;
+      border: 2px solid #4CAF50; border-radius: 4px;
+      flex-shrink: 0; cursor: pointer;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 18px; height: 18px; cursor: pointer;
+    }
+
+    /* ========== 持ち物パッキングガイド ========== */
+    .packing-guide {
+      background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+      border-radius: 12px; padding: 14px 16px; margin-bottom: 16px;
+      border-left: 5px solid #2196F3;
+    }
+    .packing-guide .title {
+      font-weight: bold; color: #0D47A1; margin-bottom: 8px;
+    }
+    .packing-guide .content {
+      font-size: 0.88em; color: #1565C0; line-height: 1.7;
+    }
+
+    /* ========== 楽しみポイント ========== */
+    .fun-points {
+      background: white; border-radius: 16px; padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 16px;
+    }
+
+    .fun-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 0; border-bottom: 1px dotted #eee;
+    }
+    .fun-item:last-child { border-bottom: none; }
+
+    .fun-emoji {
+      font-size: 1.8em; flex-shrink: 0;
+    }
+
+    .fun-content {
+      flex: 1;
+    }
+
+    .fun-title {
+      font-weight: bold; color: #333; margin-bottom: 4px;
+    }
+
+    .fun-desc {
+      font-size: 0.88em; color: #666; line-height: 1.6;
+    }
+
+    /* ========== ルール＆マナー ========== */
+    .rules-box {
+      background: white; border-radius: 16px; padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 16px;
+    }
+
     .rule-item {
-      display: flex;
-      gap: 4mm;
-      padding: 3mm 0;
-      border-bottom: 1px dotted #eee;
-      font-size: 11px;
+      display: flex; gap: 10px;
+      padding: 10px 0; border-bottom: 1px dotted #eee;
+      font-size: 0.9em;
     }
-
     .rule-item:last-child { border-bottom: none; }
 
     .rule-icon {
-      font-size: 14px;
-      min-width: 6mm;
+      font-size: 1.3em; flex-shrink: 0;
     }
 
     .rule-text {
-      flex: 1;
-      line-height: 1.4;
-    }
-
-    /* ========== ページ区切り ========== */
-    .page-break {
-      page-break-after: always;
-      height: 20mm;
+      color: #555; line-height: 1.6;
     }
 
     /* ========== フッター ========== */
     .footer {
-      text-align: center;
-      font-size: 10px;
-      color: #aaa;
-      margin-top: auto;
-      padding-top: 4mm;
-      border-top: 1px dotted #ddd;
+      text-align: center; margin-top: 30px; padding: 20px;
+      color: #aaa; font-size: 0.85em;
     }
 
-    /* ========== 楽しみポイント ========== */
-    .fun-item {
-      display: flex;
-      gap: 4mm;
-      padding: 4mm;
-      background: #f0f7ff;
-      border-radius: 3px;
-      margin-bottom: 4mm;
-      font-size: 11px;
-      page-break-inside: avoid;
+    .trip-title {
+      font-size: 0.95em; font-weight: bold; color: #333;
+      text-align: center; margin: 20px 0 10px;
     }
 
-    .fun-emoji {
-      font-size: 18px;
-      min-width: 8mm;
-    }
-
-    .fun-content { flex: 1; }
-    .fun-title { font-weight: bold; margin-bottom: 1mm; font-size: 12px; }
-    .fun-desc { color: #666; font-size: 10px; }
-
-    /* ========== 印刷ボタン ========== */
-    .print-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #4CAF50;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-
-    .print-button:hover { background: #45a049; }
-
+    /* ========== 印刷用スタイル ========== */
     @media print {
-      .print-button { display: none; }
-      .container { box-shadow: none; }
       body { background: white; }
+      .container { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-<button class="print-button no-print" onclick="window.print()">🖨️ 印刷する</button>
-
 <div class="container">
 
-  <!-- ================== ページ1 ================== -->
-  <div class="page">
-    <!-- ヘッダー -->
-    <div class="header">
-      <h1>🏔️🎣<br>山・川キャンプ<br>しおり</h1>
-      <p>わんぱく5人組</p>
-      <p>📅 2026年8月1日(土)～2日(日) | 📍 群馬県</p>
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1>🏔️🎣 わんぱく5人組<br>山・川キャンプ しおり</h1>
+    <p>📅 2026年8月1日(土) ～ 2日(日)</p>
+    <p>📍 群馬県みなかみ町・前橋市</p>
+  </div>
+
+  <!-- 基本情報 -->
+  <div class="info-card">
+    <div class="info-row">
+      <span class="info-label">📅 開催日</span>
+      <span class="info-value">2026年8月1日(土)～2日(日)</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">📍 場所</span>
+      <span class="info-value">群馬県（前橋市・みなかみ町）</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">👥 メンバー</span>
+      <span class="info-value">子供5名＋大人3名</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">🎯 テーマ</span>
+      <span class="info-value">山・川でたくさん冒険するコース</span>
+    </div>
+  </div>
+
+  <!-- スケジュール -->
+  <div class="section-title">⏰ スケジュール</div>
+
+  <!-- 1日目 -->
+  <div class="schedule-day">
+    <div class="day-title">🌅 1日目（8月1日 土曜日）</div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">9:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🚗</span> 小前田北公園に集合<br>
+        <span style="font-size:0.85em;color:#aaa;">※遅刻しないよう、8:50までに到着してね！</span>
+      </div>
     </div>
 
-    <!-- 基本情報 -->
-    <div class="section-title">📋 基本情報</div>
-    <div class="info-card">
-      <div class="info-row">
-        <span class="info-label">開催日</span>
-        <span class="info-value">8月1日(土)～2日(日)</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">場所</span>
-        <span class="info-value">群馬県（前橋市・みなかみ町）</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">メンバー</span>
-        <span class="info-value">子供5名＋大人3名</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">集合時間</span>
-        <span class="info-value">8:50までに到着！</span>
+    <div class="schedule-item">
+      <div class="schedule-time">10:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🛒</span> 晩ごはんの食材とかを買い物（途中のスーパー）
       </div>
     </div>
 
-    <!-- 楽しみポイント -->
-    <div class="section-title">🎉 楽しみポイント</div>
+    <div class="schedule-item">
+      <div class="schedule-time">11:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🎣</span> <strong>ニジマス釣り＆魚掴みにチャレンジ！</strong><br>
+        釣った魚は唐揚げにして食べます。得意な人も初心者も楽しもう！
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">14:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🏕️</span> キャンプ場にチェックイン＆場内を探検<br>
+        ロッジの中を確認して、自分の寝る場所を決めよう
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">16:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">♨️</span> 大きな深い水風呂がある温泉で癒される<br>
+        疲れた体をリフレッシュ！
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">17:30</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🍖</span> キャンプ場に戻って晩御飯の準備（BBQなど）<br>
+        みんなでご飯を作ります。協力してね！
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">20:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🎆</span> 🔥 花火で悪ふざけ！<br>
+        <strong>※ヤケドにだけ気を付けましょう</strong>
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">21:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🛏️</span> <strong>🎉 バンガローで枕投げ大会 🎉</strong><br>
+        その後、夜更かし＆就寝
+      </div>
+    </div>
+  </div>
+
+  <!-- 2日目 -->
+  <div class="schedule-day day2">
+    <div class="day-title">🌄 2日目（8月2日 日曜日）</div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">6:30</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🌅</span> おはようございます！朝のお散歩<br>
+        早起きして気持ちいい朝を感じよう
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">7:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🥐</span> 朝ごはんの準備
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">8:20</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🎒</span> 出発準備<br>
+        忘れ物がないか確認しよう
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">8:40</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🚶</span> キャンプ場をチェックアウト
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">8:50</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🚣</span> <strong>ラフティング ＆ キャニオニング で残りの体力全部使う！</strong><br>
+        AM・PMでそれぞれ体験。昼食はハウス内で食べます。
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">16:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🏊</span> 川を出発
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">17:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">🛍️</span> お家で待っている家族にお土産を買う<br>
+        赤城高原SA で買い物タイム
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="schedule-time">19:00</div>
+      <div class="schedule-content">
+        <span class="schedule-emoji">👋</span> 小前田北公園で解散<br>
+        楽しかった思い出をいっぱい持ち帰ろう！
+      </div>
+    </div>
+  </div>
+
+  <!-- 楽しみポイント -->
+  <div class="section-title">🎉 楽しみポイント BEST 5</div>
+
+  <div class="fun-points">
     <div class="fun-item">
       <div class="fun-emoji">🎣</div>
       <div class="fun-content">
-        <div class="fun-title">ニジマス釣り</div>
-        <div class="fun-desc">釣った魚を唐揚げにして食べる！</div>
+        <div class="fun-title">ニジマス釣り＆魚掴み</div>
+        <div class="fun-desc">自分で釣った魚を唐揚げにして食べる！初めての体験かも？</div>
       </div>
     </div>
+
     <div class="fun-item">
       <div class="fun-emoji">🛏️</div>
       <div class="fun-content">
         <div class="fun-title">枕投げ大会</div>
-        <div class="fun-desc">大人も一緒に大盛り上がり！</div>
+        <div class="fun-desc">大人もいるけど、みんなで大盛り上がり間違いなし！</div>
       </div>
     </div>
+
     <div class="fun-item">
       <div class="fun-emoji">🚣</div>
       <div class="fun-content">
-        <div class="fun-title">ラフティング&キャニオニング</div>
-        <div class="fun-desc">スリル満点の川遊び！</div>
+        <div class="fun-title">ラフティング＆キャニオニング</div>
+        <div class="fun-desc">AM・PMで別々の川遊びを体験。スリル満点！</div>
       </div>
     </div>
 
-    <div class="footer">
-      ページ 1 / 4
-    </div>
-  </div>
-
-  <!-- ================== ページ2 ================== -->
-  <div class="page">
-    <div class="header">
-      <h1>⏰ スケジュール</h1>
-    </div>
-
-    <!-- 1日目 -->
-    <div class="section-title">🌅 1日目（8月1日 土曜日）</div>
-    <div class="schedule-day">
-      <div class="schedule-item">
-        <div class="schedule-time">9:00</div>
-        <div class="schedule-content"><strong>小前田北公園に集合</strong></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">10:00</div>
-        <div class="schedule-content">食材買い物（スーパー）</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">11:00</div>
-        <div class="schedule-content"><strong>🎣 ニジマス釣り&魚掴み</strong></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">14:00</div>
-        <div class="schedule-content">キャンプ場チェックイン&探検</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">16:00</div>
-        <div class="schedule-content">温泉で癒される</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:30</div>
-        <div class="schedule-content">BBQ晩御飯の準備</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">20:00</div>
-        <div class="schedule-content">🔥 花火で悪ふざけ</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">21:00</div>
-        <div class="schedule-content"><strong>🎉 枕投げ大会&就寝</strong></div>
+    <div class="fun-item">
+      <div class="fun-emoji">🔥</div>
+      <div class="fun-content">
+        <div class="fun-title">BBQ ＆ 花火</div>
+        <div class="fun-desc">友達と一緒に野外で食べるご飯は最高！</div>
       </div>
     </div>
 
-    <!-- 2日目 -->
-    <div class="section-title">🌄 2日目（8月2日 日曜日）</div>
-    <div class="schedule-day day2">
-      <div class="schedule-item">
-        <div class="schedule-time">6:30</div>
-        <div class="schedule-content">朝のお散歩</div>
+    <div class="fun-item">
+      <div class="fun-emoji">♨️</div>
+      <div class="fun-content">
+        <div class="fun-title">温泉で癒される</div>
+        <div class="fun-desc">大きな水風呂で思いっきりリラックス</div>
       </div>
-      <div class="schedule-item">
-        <div class="schedule-time">7:00</div>
-        <div class="schedule-content">朝ごはんの準備</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">8:20</div>
-        <div class="schedule-content">出発準備</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">8:40</div>
-        <div class="schedule-content">チェックアウト</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">8:50</div>
-        <div class="schedule-content"><strong>🚣 ラフティング&キャニオニング</strong></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">16:00</div>
-        <div class="schedule-content">川を出発</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:00</div>
-        <div class="schedule-content">SA でお土産購入</div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">19:00</div>
-        <div class="schedule-content"><strong>🏁 解散</strong></div>
-      </div>
-    </div>
-
-    <div class="footer">
-      ページ 2 / 4
     </div>
   </div>
 
-  <!-- ================== ページ3 ================== -->
-  <div class="page">
-    <div class="header">
-      <h1>✅ 持ち物チェックリスト</h1>
-    </div>
+  <!-- 注意事項 -->
+  <div class="section-title">⚠️ 重要！ 注意事項</div>
 
-    <!-- 1日目 -->
+  <div class="warning-box">
+    <div class="title">🚗 交通で気を付けること</div>
+    <div class="content">
+      ・乗り物に酔いやすい人は酔止め薬を持ってきてね<br>
+      ・エチケット袋も念のため用意<br>
+      ・窓の外を見ると酔いが軽くなることもあります
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="title">🎣 釣り・川遊びで気を付けること</div>
+    <div class="content">
+      ・水は冷たいのでビックリしないで！<br>
+      ・ラッシュガードで日焼けを防ごう<br>
+      ・マリンシューズ着用（クロックスやビーチサンダルはNG）<br>
+      ・眼鏡をかけている人はストラップをつけて
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="title">🔥 花火で気を付けること</div>
+    <div class="content">
+      ・<strong>ヤケドに気を付けましょう！</strong><br>
+      ・火の粉が飛ぶので、距離を取って遊びましょう<br>
+      ・終わった火は水をかけて確実に消してね
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="title">🏕️ キャンプ場でのルール</div>
+    <div class="content">
+      ・夜中はうるさくしない（他の人の迷惑にならないように）<br>
+      ・ゴミは絶対に捨てない（持ち帰ります）<br>
+      ・消灯時間を守って寝る時間に入ろう
+    </div>
+  </div>
+
+  <!-- チェックリスト -->
+  <div class="section-title">✅ 持ち物チェックリスト</div>
+
+  <div class="packing-guide">
+    <div class="title">📦 パッキングのコツ</div>
+    <div class="content">
+      ✓ 大きなバッグ1つ＋小さなバッグ1つが目安<br>
+      ✓ 下から重いものを入れる<br>
+      ✓ 濡れてもいい服は一番上に<br>
+      ✓ ぬいぐるみは枕投げに使用！
+    </div>
+  </div>
+
+  <!-- 1日目チェックリスト -->
+  <div class="checklist-section">
     <div class="checklist-day">
       <div class="checklist-day-title">📋 1日目の持ち物</div>
       <div class="checklist-items">
@@ -450,7 +490,7 @@
           <input type="checkbox"> エチケット袋
         </label>
         <label class="checklist-item">
-          <input type="checkbox"> 釣り用の服
+          <input type="checkbox"> 濡れても良い服（釣り用）
         </label>
         <label class="checklist-item">
           <input type="checkbox"> サンダル
@@ -483,12 +523,11 @@
           <input type="checkbox"> タオルケット
         </label>
         <label class="checklist-item">
-          <input type="checkbox"> 🧸 ぬいぐるみ
+          <input type="checkbox"> 🧸 ぬいぐるみ1個
         </label>
       </div>
     </div>
 
-    <!-- 2日目 -->
     <div class="checklist-day day2">
       <div class="checklist-day-title">📋 2日目の持ち物</div>
       <div class="checklist-items">
@@ -514,101 +553,108 @@
           <input type="checkbox"> お財布
         </label>
         <label class="checklist-item">
-          <input type="checkbox"> 水着用の袋
+          <input type="checkbox"> 濡れた水着を入れる袋
         </label>
         <label class="checklist-item">
           <input type="checkbox"> 着替え
         </label>
       </div>
     </div>
-
-    <div class="footer">
-      ページ 3 / 4
-    </div>
   </div>
 
-  <!-- ================== ページ4 ================== -->
-  <div class="page">
-    <div class="header">
-      <h1>⚠️ 注意事項 & ルール</h1>
-    </div>
+  <!-- ルール＆マナー -->
+  <div class="section-title">📏 ルール ＆ マナー</div>
 
-    <!-- 注意事項 -->
-    <div class="section-title">⚠️ 気を付けること</div>
-
-    <div class="warning-box">
-      <div class="title">🚗 移動中</div>
-      <div class="content">
-        ・酔いやすい人は酔止め薬を持ってくる<br>
-        ・エチケット袋も用意する
-      </div>
-    </div>
-
-    <div class="warning-box">
-      <div class="title">🎣 釣り・川遊び</div>
-      <div class="content">
-        ・マリンシューズを着用（クロックスはNG）<br>
-        ・ラッシュガードで日焼け防止<br>
-        ・眼鏡はストラップをつける
-      </div>
-    </div>
-
-    <div class="warning-box">
-      <div class="title">🔥 花火</div>
-      <div class="content">
-        ・<strong>ヤケドに気を付ける！！</strong><br>
-        ・火の粉から距離を取る<br>
-        ・終わった火は必ず水をかける
-      </div>
-    </div>
-
-    <!-- ルール -->
-    <div class="section-title">📏 キャンプ場でのルール</div>
-
+  <div class="rules-box">
     <div class="rule-item">
       <div class="rule-icon">👥</div>
-      <div class="rule-text"><strong>みんなで楽しく！</strong>ケンカやいじめはしない</div>
+      <div class="rule-text">
+        <strong>みんなで楽しく！</strong><br>
+        ケンカしたり、いじめたりしない。困ってる人がいたら助けてあげよう
+      </div>
     </div>
 
     <div class="rule-item">
       <div class="rule-icon">🗑️</div>
-      <div class="rule-text"><strong>ゴミ持ち帰る！</strong>自然を守ろう</div>
+      <div class="rule-text">
+        <strong>ゴミは持ち帰る</strong><br>
+        自分が出したゴミは責任を持ってカバンに入れよう。自然を守ろう！
+      </div>
     </div>
 
     <div class="rule-item">
       <div class="rule-icon">🤐</div>
-      <div class="rule-text"><strong>夜中は静かに</strong>22:00以降は控える</div>
+      <div class="rule-text">
+        <strong>夜中は静かに</strong><br>
+        他のキャンプ客の迷惑になるので、22:00以降は静かにしよう
+      </div>
     </div>
 
     <div class="rule-item">
       <div class="rule-icon">⏰</div>
-      <div class="rule-text"><strong>時間を守る</strong>集合時間厳守</div>
+      <div class="rule-text">
+        <strong>時間を守る</strong><br>
+        集合時間や出発時間を守って、みんなに迷惑をかけない
+      </div>
     </div>
 
     <div class="rule-item">
       <div class="rule-icon">🙏</div>
-      <div class="rule-text"><strong>大人の話を聞く</strong>危険なことは真剣に</div>
+      <div class="rule-text">
+        <strong>大人の話を聞く</strong><br>
+        危険なことや大切な話は真剣に聞こう
+      </div>
     </div>
 
-    <!-- メッセージ -->
-    <div style="background: #E8F5E9; border: 2px solid #4CAF50; padding: 6mm; margin-top: 6mm; border-radius: 3px; text-align: center; font-size: 12px; line-height: 1.5; font-weight: bold;">
-      🎉 最高の思い出を作ろう！<br>
-      <span style="color: #1B5E20;">チームワークを大切にして、<br>素晴らしい2日間を過ごそう！</span>
-    </div>
-
-    <div class="footer">
-      ページ 4 / 4
+    <div class="rule-item">
+      <div class="rule-icon">📸</div>
+      <div class="rule-text">
+        <strong>思い出をいっぱい作ろう</strong><br>
+        写真も撮るけど、目に焼き付けることも大事。今この時を楽しもう！
+      </div>
     </div>
   </div>
 
-</div>
+  <!-- 緊急連絡先 -->
+  <div class="section-title">🚨 緊急連絡先</div>
 
-<script>
-  // 印刷時の表示調整
-  window.addEventListener('beforeprint', function() {
-    document.body.style.background = 'white';
-  });
-</script>
+  <div class="info-card">
+    <div class="trip-title">もしもの時の連絡先</div>
+    <div class="info-row">
+      <span class="info-label">ロッジの電話番号</span>
+      <span class="info-value">※出発時に案内します</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">大人の携帯電話</span>
+      <span class="info-value">※出発時に案内します</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">保険証</span>
+      <span class="info-value">📄 コピーを持ってきてね</span>
+    </div>
+  </div>
+
+  <!-- メッセージ -->
+  <div class="section-title">💚 最後に...</div>
+
+  <div class="info-card" style="background: linear-gradient(135deg, #E8F5E9, #C8E6C9);">
+    <p style="color: #1B5E20; font-size: 0.95em; line-height: 1.8; text-align: center;">
+      <strong>🏔️ このキャンプは、みんなの協力で成り立ちます！</strong><br><br>
+      ✨ 初めての友達もいるかもしれない<br>
+      ✨ 得意な人も苦手な人もいるかもしれない<br>
+      ✨ でも、だからこそ素晴らしい思い出になる！<br><br>
+      <strong>チームワークを大切にして、最高の2日間を過ごそう！</strong>
+    </p>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <p>🎉 わんぱく5人組の山・川キャンプ 公式しおり 🎉</p>
+    <p>📅 2026年8月1日(土) ～ 2日(日)</p>
+    <p style="margin-top: 16px; color: #999;">💡 このしおりはいつでも見返してね。質問があれば大人に聞こう！</p>
+  </div>
+
+</div>
 
 </body>
 </html>
